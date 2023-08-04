@@ -7,10 +7,23 @@ const app = express();
 const port = 8080;
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/mydb", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+//h0ddfE9fhkDACeKb    -password for mongo-atlas
+
+//mongodb+srv://knagapramod28:motherfather@cluster0.opuqsor.mongodb.net/
+// mongoose.connect("mongodb://localhost:27017/mydb",
+
+mongoose
+  .connect(
+    "mongodb+srv://knagapramod28:h0ddfE9fhkDACeKb@cluster0.31yisga.mongodb.net/",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => {
+    console.log("db connected");
+  })
+  .catch((err) => console.log(err));
 
 // Schema for the "jobs" collection
 const jobSchema = new mongoose.Schema({
